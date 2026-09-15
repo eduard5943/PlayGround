@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>МиниКрафт — браузерная песочница</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%236abd30'/><rect y='10' width='16' height='6' fill='%238a5f3c'/></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+  <canvas id="game"></canvas>
+
+  <div id="crosshair">+</div>
+
+  <div id="menu" class="overlay">
+    <div class="panel">
+      <h1>⛏️ МиниКрафт</h1>
+      <p>Воксельная песочница в браузере</p>
+      <ul>
+        <li><b>WASD</b> — движение, <b>мышь</b> — обзор</li>
+        <li><b>Пробел</b> — прыжок, <b>F</b> — полёт</li>
+        <li><b>ЛКМ</b> — сломать, <b>ПКМ</b> — поставить</li>
+        <li><b>1–9</b> / колесо — выбор блока</li>
+      </ul>
+      <button id="playBtn">▶ Играть</button>
+      <button id="regenBtn" class="secondary">🌍 Новый мир</button>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div id="topbar">
+      <span id="fps">60 FPS</span>
+      <span id="pos">0, 0, 0</span>
+      <span id="mode">🚶 Ходьба</span>
+    </div>
+    <div id="hotbar"></div>
+    <div id="hint">ЛКМ — сломать · ПКМ — поставить · F — полёт · Esc — меню</div>
+  </div>
+
+  <div id="touch" class="hidden">
+    <div id="joy"><div id="stick"></div></div>
+    <div id="touchBtns">
+      <button data-act="jump">▲</button>
+      <button data-act="break">⛏</button>
+      <button data-act="place">🧱</button>
+      <button data-act="fly">🕊</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+<script type="module" src="game.js"></script>
+</body>
+</html>
